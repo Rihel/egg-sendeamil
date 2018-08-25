@@ -1,6 +1,6 @@
 {
   "name": "egg-sendemail",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "发送邮件服务",
   "eggPlugin": {
     "name": "sendemail"
