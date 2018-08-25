@@ -14,7 +14,8 @@
     "@types/nodemailer": "^4.6.2",
     "@types/nodemailer-smtp-transport": "^2.7.4",
     "nodemailer": "^4.6.8",
-    "nodemailer-smtp-transport": "^2.7.4"
+    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemailer-wellknown": "^0.2.3"
   },
   "devDependencies": {
     "autod": "^3.0.0",

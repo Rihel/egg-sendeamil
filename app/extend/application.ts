@@ -1,5 +1,6 @@
 import * as nodemailer  from'nodemailer'
 import * as smtpTransport from 'nodemailer-smtp-transport'
+import wellknown from 'nodemailer-wellknown'
 import { Application } from 'egg'
 export interface EmailOption {
   to : string;
@@ -10,9 +11,12 @@ export interface EmailOption {
 export default {
   sendEmail(this:Application,option : EmailOption){
     return new Promise((resolve, reject) => {
-      let transporter = nodemailer.createTransport(smtpTransport(this.config.sendEmail))
+      const { auth, service }  = this.config.sendEmail;
+      const config:any = wellknown(service)
+      config.auth = auth;
+      let transporter = nodemailer.createTransport(smtpTransport(config))
       const mailOptions = {
-        from: this.config.auth.user,
+        from: config.auth.user,
         to: option.to,
         subject: option.subject,
         text: option.text,
