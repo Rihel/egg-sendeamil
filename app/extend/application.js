@@ -1,13 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const nodemailer = require("nodemailer");
 const smtpTransport = require("nodemailer-smtp-transport");
-const nodemailer_wellknown_1 = require("nodemailer-wellknown");
-exports.default = {
+const wellknown = require("nodemailer-wellknown");
+module.exports = {
     sendEmail(option) {
         return new Promise((resolve, reject) => {
             const { auth, service } = this.config.sendEmail;
-            const config = nodemailer_wellknown_1.default(service);
+            const config = wellknown(service);
             config.auth = auth;
             let transporter = nodemailer.createTransport(smtpTransport(config));
             const mailOptions = {

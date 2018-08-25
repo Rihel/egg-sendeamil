@@ -1,14 +1,10 @@
+import { EmailOption } from './../../index.d';
 import * as nodemailer  from'nodemailer'
 import * as smtpTransport from 'nodemailer-smtp-transport'
-import wellknown from 'nodemailer-wellknown'
+import wellknown =  require('nodemailer-wellknown')
 import { Application } from 'egg'
-export interface EmailOption {
-  to : string;
-  subject : string;
-  text?: string;
-  html?: string;
-}
-export default {
+
+export = {
   sendEmail(this:Application,option : EmailOption){
     return new Promise((resolve, reject) => {
       const { auth, service }  = this.config.sendEmail;
