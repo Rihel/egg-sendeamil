@@ -7,7 +7,7 @@ exports.default = {
         return new Promise((resolve, reject) => {
             let transporter = nodemailer.createTransport(smtpTransport(this.config.sendEmail));
             const mailOptions = {
-                from: this.config.sendEmail.auth.user,
+                from: this.config.auth.user,
                 to: option.to,
                 subject: option.subject,
                 text: option.text,
