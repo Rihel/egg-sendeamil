@@ -12,7 +12,7 @@ export = {
       config.auth = auth;
       let transporter = nodemailer.createTransport(smtpTransport(config))
       const mailOptions = {
-        from: config.auth.user,
+        from: `${option.from}<${config.auth.user}>`,
         to: option.to,
         subject: option.subject,
         text: option.text,
